@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
 import ExpertiseSection from './components/ExpertiseSection';
 import WorkSection from './components/WorkSection';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <AboutSection />
       <ExpertiseSection />
       <WorkSection />
+      <Footer />
     </Layout>
   );
 }

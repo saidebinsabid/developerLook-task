@@ -85,7 +85,7 @@ const WorkCard = ({ data }) => {
           <h3 className="text-white text-[20px] sm:text-2xl lg:text-[26px] xl:text-[28px] font-bold leading-[1.05] tracking-tight mb-5 whitespace-pre-line relative z-10">
             {data.title}
           </h3>
-          <span className="inline-block px-3 py-1.5 bg-white/20 text-white rounded-[6px] text-[11px] lg:text-xs font-bold uppercase tracking-widest backdrop-blur-md relative z-10 shadow-sm border border-white/10">
+          <span className="inline-block px-4 py-2 md:px-5 md:py-2.5 bg-white/20 text-white rounded-[8px] text-[11px] lg:text-xs font-bold uppercase tracking-widest backdrop-blur-md relative z-10 shadow-sm border border-white/10">
             {data.tag}
           </span>
         </div>
