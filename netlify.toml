@@ -1,0 +1,15 @@
+[build]
+  # The command Netlify will run to build your Vite project
+  command = "npm run build"
+  
+  # The directory containing the built assets that Netlify will serve
+  publish = "dist"
+
+# Single-Page Application (SPA) configuration
+# This ensures that all route requests are redirected to index.html,
+# allowing React Router (or your client-side app) to handle the routing
+# without Netlify throwing a 404 Not Found error.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
