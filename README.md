@@ -90,7 +90,7 @@ Developing this project came with several technical hurdles that required creati
 ## 📬 Contact & Support
 If you have any questions or would like to collaborate, feel free to reach out:
 
-📧 **Email:** [your-email@example.com](mailto:ssaidein1@example.com)  
+📧 **Email:** [ssaidebin1@gmail.com](mailto:ssaidebin1@gmail.com)  
 🐙 **GitHub:** [@saidebinsabid](https://github.com/saidebinsabid)
 
 ---
