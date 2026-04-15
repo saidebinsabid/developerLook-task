@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { HiArrowUpRight, HiArrowDown } from 'react-icons/hi2';
 import orangeGirl from '../assets/orange-girl.webp';
 
 const AboutSection = () => {
@@ -62,9 +63,7 @@ const AboutSection = () => {
             >
               <span className="text-black font-bold text-base md:text-xl mr-4 md:mr-6">Leer ons kennen</span>
               <div className="bg-[#111] rounded-xl w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-white">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <HiArrowUpRight size={20} />
               </div>
             </motion.div>
           </motion.div>
@@ -78,6 +77,22 @@ const AboutSection = () => {
             viewport={{ once: true }}
             animate={{ rotate: isHovered ? -12 : 0 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+            onClick={() => {
+              const target = document.getElementById('expertise');
+              if (!target) return;
+              const start = window.scrollY;
+              const end = target.getBoundingClientRect().top + window.scrollY;
+              const duration = 1400;
+              const startTime = performance.now();
+              const easeInOutCubic = (t) => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2;
+              const step = (now) => {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                window.scrollTo(0, start + (end - start) * easeInOutCubic(progress));
+                if (progress < 1) requestAnimationFrame(step);
+              };
+              requestAnimationFrame(step);
+            }}
             className="absolute bottom-[-20px] right-0 z-50 hidden md:flex items-center justify-center w-14 h-14 rounded-[16px] border-[2px] border-black text-black bg-transparent cursor-pointer active:scale-90 overflow-hidden"
           >
             {/* Inner Arrow Container - Counter-rotating */}
@@ -94,9 +109,7 @@ const AboutSection = () => {
                 transition={{ duration: 0.35, ease: "easeOut" }}
                 className="absolute text-black"
               >
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <HiArrowDown size={22} />
               </motion.div>
 
               <motion.div
@@ -107,9 +120,7 @@ const AboutSection = () => {
                 transition={{ duration: 0.35, ease: "easeOut" }}
                 className="absolute text-[#ff5e26]"
               >
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <HiArrowDown size={22} />
               </motion.div>
             </motion.div>
           </motion.div>

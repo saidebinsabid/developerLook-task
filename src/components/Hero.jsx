@@ -120,7 +120,7 @@ const Hero = () => {
           initial="hidden"
           animate="show"
           whileHover={{ rotate: 0, y: -30, x: -40, scale: 1.05, zIndex: 50 }}
-          className="relative z-10 w-[190px] h-[260px] md:w-[260px] md:h-[350px] lg:w-[420px] lg:h-[540px] rounded-[40px] md:rounded-[48px] overflow-hidden shadow-none origin-bottom-left transition-shadow"
+          className="shrink-0 relative z-10 w-[190px] h-[260px] md:w-[260px] md:h-[350px] lg:w-[420px] lg:h-[540px] rounded-[40px] md:rounded-[48px] overflow-hidden shadow-none origin-bottom-left transition-shadow"
         >
           <img src={defaultImage1} alt="Party" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>

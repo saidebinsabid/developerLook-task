@@ -1,20 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import { BsFire } from 'react-icons/bs';
+import { IoClose } from 'react-icons/io5';
 import logo from '../assets/navar-logo.svg';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY < 80) {
+        setVisible(true); // Always show at top
+      } else if (currentY > lastScrollY) {
+        setVisible(false); // Scrolling DOWN → hide
+      } else {
+        setVisible(true);  // Scrolling UP → show
+      }
+      setLastScrollY(currentY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   const navLinks = ['Expertises', 'Work', 'About', 'Contact'];
 
   return (
     <>
-      <motion.nav 
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="max-w-[1700px] mx-auto px-6 lg:px-10 pt-8 flex items-center justify-between relative z-40"
+      <div className="fixed top-0 left-0 right-0 z-50">
+      <motion.nav
+        animate={{ y: visible ? 0 : -120, opacity: visible ? 1 : 0 }}
+        transition={{ type: 'spring', stiffness: 260, damping: 28 }}
+        className="max-w-[1700px] mx-auto px-6 lg:px-10 pt-6 pb-2 flex items-center justify-between relative z-40"
       >
         {/* Real Logo - Larger for 100% zoom */}
         <div className="cursor-pointer">
@@ -31,10 +51,16 @@ const Navbar = () => {
         </div>
 
         {/* Right CTA - Desktop Only (Now LG+) */}
-        <div className="hidden lg:flex cursor-pointer bg-gradient-to-r from-fuchsia-300 to-pink-300 rounded-[20px] px-6 py-3 items-center gap-3 hover:scale-105 transition-transform origin-center shadow-md">
+        <motion.div
+          whileHover={{ y: -5, rotate: -2 }}
+          whileTap={{ scale: 0.97 }}
+          className="hidden lg:flex cursor-pointer bg-gradient-to-r from-fuchsia-300 to-pink-300 rounded-[20px] px-6 py-3 items-center gap-3 shadow-md"
+        >
           <span className="text-[15px] font-bold text-black whitespace-nowrap">Get Results</span>
-          <span className="bg-white rounded-lg w-7 h-7 flex items-center justify-center text-[12px] shadow-sm">🔥</span>
-        </div>
+          <span className="bg-white rounded-lg w-7 h-7 flex items-center justify-center shadow-sm">
+            <BsFire size={16} color="#ff5e26" />
+          </span>
+        </motion.div>
 
         {/* Mobile/Tablet Hamburger Menu - Animates to Cross */}
         <div 
@@ -51,6 +77,7 @@ const Navbar = () => {
           />
         </div>
       </motion.nav>
+      </div>
 
       {/* Mobile/Tablet Menu Overlay */}
       <AnimatePresence>
@@ -74,7 +101,7 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                 className="w-10 h-10 bg-white rounded-xl flex items-center justify-center cursor-pointer shadow-sm active:scale-90 transition-transform"
               >
-                <span className="text-black text-xl font-bold">✕</span>
+                <IoClose size={22} className="text-black" />
               </div>
             </div>
 
@@ -107,8 +134,8 @@ const Navbar = () => {
             >
               <div className="bg-[#111] text-white rounded-[24px] md:rounded-[32px] px-8 py-3 md:px-12 md:py-4 flex items-center gap-4 cursor-pointer hover:scale-105 transition-transform">
                 <span className="text-lg md:text-2xl font-black italic tracking-tighter">Get Results</span>
-                <div className="bg-white rounded-xl w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-xl md:text-3xl shadow-sm">
-                  🔥
+                <div className="bg-white rounded-xl w-10 h-10 md:w-12 md:h-12 flex items-center justify-center shadow-sm">
+                  <BsFire size={24} color="#ff5e26" />
                 </div>
               </div>
             </motion.div>

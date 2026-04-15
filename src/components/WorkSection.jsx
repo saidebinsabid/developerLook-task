@@ -1,35 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { HiArrowUpRight, HiArrowRight } from 'react-icons/hi2';
 
 const WORK_DATA = [
   {
     id: 1,
     title: "Van nul naar vol,\nbinnen 3 weken",
     tag: "Bullit",
-    color: "#FF5E26", // Orange
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop"
+    color: "#FF5E26",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+    mobileRotate: -3,
   },
   {
     id: 2,
     title: "Zacht in smaak,\nsterk in beeld",
     tag: "Roasta",
-    color: "#0c82fb", // Blue
-    image: "https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=800&auto=format&fit=crop"
+    color: "#0c82fb",
+    image: "https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=800&auto=format&fit=crop",
+    mobileRotate: 3,
   },
   {
     id: 3,
     title: "Content die écht\nsmaakt (en raakt)",
     tag: "Loco",
-    color: "#27ce85", // Green
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop"
+    color: "#27ce85",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop",
+    mobileRotate: -2,
   }
 ];
 
 const WorkCard = ({ data }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
   return (
     <motion.div
-      whileHover={{ y: -8, rotate: -1.5 }}
-      transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      animate={{ rotate: isMobile ? data.mobileRotate : 0 }}
+      whileHover={{
+        y: -8,
+        rotate: isMobile ? -(data.mobileRotate) : -1.5,
+        scale: 1.03,
+      }}
+      transition={{ type: "spring", stiffness: 300, damping: 22 }}
       className="w-full aspect-[4/5] lg:aspect-[3/4.2] relative rounded-[32px] lg:rounded-[48px] border-[5px] lg:border-[6px] flex flex-col justify-end overflow-hidden group cursor-pointer shadow-sm"
       style={{ borderColor: data.color, WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
     >
@@ -48,20 +66,18 @@ const WorkCard = ({ data }) => {
         <div className="absolute right-4 lg:right-6 top-0 -translate-y-[45%] z-20 w-11 h-11 lg:w-13 lg:h-13 bg-white rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-105 overflow-hidden">
           <div className="relative w-6 h-6 flex items-center justify-center pointer-events-none">
             {/* Original Icon - Flies out diagonally top-right */}
-            <svg 
-              width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" 
-              className="absolute lg:w-6 lg:h-6 transition-all duration-300 ease-out group-hover:translate-x-6 group-hover:-translate-y-6 group-hover:opacity-0"
+            <span
+              className="absolute transition-all duration-300 ease-out group-hover:translate-x-6 group-hover:-translate-y-6 group-hover:opacity-0 text-black"
             >
-              <path d="M5 19L19 5M19 5H9M19 5V15" />
-            </svg>
-            
+              <HiArrowUpRight size={22} strokeWidth={1} />
+            </span>
+
             {/* New Icon - Flies in diagonally from bottom-left */}
-            <svg 
-              width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" 
-              className="absolute lg:w-6 lg:h-6 opacity-0 -translate-x-6 translate-y-6 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100"
+            <span
+              className="absolute opacity-0 -translate-x-6 translate-y-6 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100 text-black"
             >
-              <path d="M5 19L19 5M19 5H9M19 5V15" />
-            </svg>
+              <HiArrowUpRight size={22} />
+            </span>
           </div>
         </div>
 
@@ -118,9 +134,7 @@ const WorkSection = () => {
                 Bekijk al ons werk
               </span>
               <div className="w-9 h-9 bg-[#111] text-white rounded-[10px] flex items-center justify-center shadow-sm">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1 group-hover:-rotate-[15deg]">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
+                <HiArrowRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-rotate-[15deg]" />
               </div>
             </motion.button>
           </div>
