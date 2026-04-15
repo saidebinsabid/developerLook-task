@@ -22,13 +22,13 @@ This project is a premium portfolio experience designed to showcase high-end cre
 
 This project implements several high-end interactive animations to elevate the user experience. Below are the professional techniques used:
 
--   **Layered Slide Reveal (Staggered Sweep)**: A multi-color background transition for navigation links where an "Orange Sweep" leads a "Black Base," creating a rhythmic curtain-like reveal.
--   **Shimmering Skeleton Screens**: Custom-built loading states using a "Shimmer Animation" to provide a skeleton-based content placeholders during initial load.
--   **Pinned Horizontal Scroll**: Implemented in the Expertise section using GSAP's `ScrollTrigger` to create a "Stacked Card Transition" that stays pinned while the user scrolls.
--   **Interactive Mouse Trailing**: A dynamic "Cursor Trail" effect that spawns project-related assets following the user's mouse movement.
--   **Infinite Logo Marquee**: A non-stop, smooth looping slider for brand partner logos.
--   **Text Masking & Staggered Reveal**: The Hero section titles use hidden overflow containers to create a clean "Slide-up Reveal" effect.
--   **Elastic Hover Interaction**: All primary buttons utilize "Spring Physics" to handle lift, scale, and subtle rotation, ensuring tactile feedback.
+-   🌊 **Layered Slide Reveal (Staggered Sweep)**: A multi-color background transition for navigation links where an "Orange Sweep" leads a "Black Base," creating a rhythmic curtain-like reveal.
+-   ❄️ **Shimmering Skeleton Screens**: Custom-built loading states using a "Shimmer Animation" to provide a skeleton-based content placeholders during initial load.
+-   📌 **Pinned Horizontal Scroll (GSAP)**: Implemented in the Expertise section using GSAP's `ScrollTrigger` to create a "Stacked Card Transition" that stays pinned while the user scrolls.
+-   🖱️ **Interactive Mouse Trailing**: A dynamic "Cursor Trail" effect that spawns project-related assets following the user's mouse movement.
+-   ♾️ **Infinite Logo Marquee**: A non-stop, smooth looping slider for brand partner logos.
+-   🎭 **Text Masking & Staggered Reveal**: The Hero section titles use hidden overflow containers to create a clean "Slide-up Reveal" effect.
+-   🎯 **Elastic Hover Interaction**: All primary buttons utilize "Spring Physics" to handle lift, scale, and subtle rotation, ensuring tactile feedback.
 
 ## 📁 Project Structure
 ```text
