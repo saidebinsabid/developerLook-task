@@ -20,3 +20,22 @@ body {
 .brands-track {
   animation: brands-scroll 30s linear infinite;
 }
+
+/* Skeleton Styles */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #ece9e2 25%, #f5f2eb 50%, #ece9e2 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 8px;
+}
+
+.skeleton-dark {
+  background: linear-gradient(90deg, #e5e0d5 25%, #ede8de 50%, #e5e0d5 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+}
