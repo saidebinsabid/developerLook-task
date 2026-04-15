@@ -42,11 +42,46 @@ const Navbar = () => {
         </div>
 
         {/* Center Links - Desktop Only (Now LG+) */}
-        <div className="hidden lg:flex items-center gap-10 bg-white px-10 py-4 rounded-2xl shadow-[0px_4px_25px_rgba(0,0,0,0.03)]">
+        <div className="hidden lg:flex items-center gap-10 bg-white px-8 py-2 rounded-2xl shadow-[0px_4px_25px_rgba(0,0,0,0.03)]">
           {navLinks.map(link => (
-            <a key={link} href={`#${link.toLowerCase()}`} className="text-[15px] font-bold text-black hover:text-gray-600 transition-colors">
-              {link}
-            </a>
+            <motion.a 
+              key={link} 
+              href={`#${link.toLowerCase()}`} 
+              className="relative text-[15px] font-bold transition-all px-6 py-3 rounded-xl flex items-center justify-center group overflow-hidden"
+              initial="initial"
+              whileHover="hover"
+            >
+              {/* Layer 1: Orange Sweep (Passes through) */}
+              <motion.div
+                variants={{
+                  initial: { y: '100%' },
+                  hover: { y: '-100%' }
+                }}
+                transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                className="absolute inset-0 z-0 bg-[#ff5e26]"
+              />
+
+              {/* Layer 2: Black Background (Stays) */}
+              <motion.div
+                variants={{
+                  initial: { y: '100%' },
+                  hover: { y: 0 }
+                }}
+                transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1], delay: 0.02 }}
+                className="absolute inset-0 z-0 bg-[#111]"
+              />
+
+              <motion.span 
+                variants={{
+                  initial: { color: '#111' },
+                  hover: { color: '#FFF' }
+                }}
+                transition={{ duration: 0.2, delay: 0.1 }}
+                className="relative z-10"
+              >
+                {link}
+              </motion.span>
+            </motion.a>
           ))}
         </div>
 

@@ -80,12 +80,43 @@ const Footer = () => {
         {/* Nav Pills */}
         <div className="flex flex-wrap justify-center gap-2 mb-6">
           {['Expertises', 'Work', 'About', 'Contact'].map((item) => (
-            <span
+            <motion.span
               key={item}
-              className="bg-white rounded-[14px] px-5 py-2.5 text-[14px] font-bold text-black shadow-sm border border-gray-200 cursor-pointer"
+              initial="initial"
+              whileHover="hover"
+              className="relative bg-white rounded-[14px] px-5 py-2.5 text-[14px] font-bold text-black shadow-sm border border-gray-200 cursor-pointer overflow-hidden group"
             >
-              {item}
-            </span>
+              {/* Layer 1: Orange Sweep */}
+              <motion.div
+                variants={{
+                  initial: { y: '100%' },
+                  hover: { y: '-100%' }
+                }}
+                transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                className="absolute inset-0 z-0 bg-[#ff5e26]"
+              />
+
+              {/* Layer 2: Black Background */}
+              <motion.div
+                variants={{
+                  initial: { y: '100%' },
+                  hover: { y: 0 }
+                }}
+                transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1], delay: 0.02 }}
+                className="absolute inset-0 z-0 bg-[#111]"
+              />
+
+              <motion.span
+                variants={{
+                  initial: { color: '#111' },
+                  hover: { color: '#FFF' }
+                }}
+                transition={{ duration: 0.2, delay: 0.1 }}
+                className="relative z-10"
+              >
+                {item}
+              </motion.span>
+            </motion.span>
           ))}
         </div>
 
@@ -242,10 +273,45 @@ const Footer = () => {
 
                     {/* Row 1: Horizontal Pills */}
                     <div className="flex flex-wrap lg:flex-nowrap gap-3 lg:gap-4">
-                      <span className="bg-white rounded-[14px] px-5 py-2.5 text-[15px] font-bold text-black shadow-sm border-[2px] border-transparent hover:border-black transition-colors cursor-pointer">Expertises</span>
-                      <span className="bg-white rounded-[14px] px-5 py-2.5 text-[15px] font-bold text-black shadow-sm border-[2px] border-transparent hover:border-black transition-colors cursor-pointer">Work</span>
-                      <span className="bg-white rounded-[14px] px-5 py-2.5 text-[15px] font-bold text-black shadow-sm border-[2px] border-transparent hover:border-black transition-colors cursor-pointer">About</span>
-                      <span className="bg-white rounded-[14px] px-5 py-2.5 text-[15px] font-bold text-black shadow-sm border-[2px] border-transparent hover:border-black transition-colors cursor-pointer">Contact</span>
+                      {['Expertises', 'Work', 'About', 'Contact'].map((item) => (
+                        <motion.span
+                          key={item}
+                          initial="initial"
+                          whileHover="hover"
+                          className="relative bg-white rounded-[14px] px-5 py-2.5 text-[15px] font-bold text-black shadow-sm border-[2px] border-transparent transition-colors cursor-pointer overflow-hidden group"
+                        >
+                          {/* Layer 1: Orange Sweep */}
+                          <motion.div
+                            variants={{
+                              initial: { y: '100%' },
+                              hover: { y: '-100%' }
+                            }}
+                            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                            className="absolute inset-0 z-0 bg-[#ff5e26]"
+                          />
+
+                          {/* Layer 2: Black Background */}
+                          <motion.div
+                            variants={{
+                              initial: { y: '100%' },
+                              hover: { y: 0 }
+                            }}
+                            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1], delay: 0.02 }}
+                            className="absolute inset-0 z-0 bg-[#111]"
+                          />
+
+                          <motion.span
+                            variants={{
+                              initial: { color: '#111' },
+                              hover: { color: '#FFF' }
+                            }}
+                            transition={{ duration: 0.2, delay: 0.1 }}
+                            className="relative z-10"
+                          >
+                            {item}
+                          </motion.span>
+                        </motion.span>
+                      ))}
                     </div>
 
                     {/* Row 2: Follow Us */}

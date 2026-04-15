@@ -78,9 +78,9 @@ const Hero = () => {
           <div className="overflow-hidden">
             <motion.h1
               variants={itemVars}
-              className="text-[2.6rem] sm:text-[5.5rem] lg:text-[7rem] font-bold leading-[1] lg:leading-[0.85] tracking-[-0.04em] mb-4 lg:mb-8 text-black whitespace-nowrap"
+              className="text-[2.3rem] sm:text-[5.5rem] lg:text-[7rem] font-bold leading-[1.1] lg:leading-[0.85] tracking-[-0.04em] mb-4 lg:mb-8 text-black"
             >
-              Get Noticed. <span className="sm:inline">Get Results.</span>
+              Get Noticed. <span className="block sm:inline">Get Results.</span>
             </motion.h1>
           </div>
         </div>

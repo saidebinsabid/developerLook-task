@@ -189,7 +189,7 @@ const ExpertiseSection = () => {
 
                   {/* Row 5: Wide CTA Button */}
                   <button
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-[14px] transition-all active:scale-[0.97] border-[1.5px] border-black text-black"
+                    className="w-fit flex items-center justify-between gap-4 px-5 py-3 rounded-[14px] transition-all active:scale-[0.97] border-[1.5px] border-black text-black"
                   >
                     <span className="font-bold text-[13px] sm:text-[14px]">{card.cta}</span>
                     <div className="w-7 h-7 rounded-full flex items-center justify-center bg-black text-white shrink-0">
