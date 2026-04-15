@@ -57,7 +57,7 @@ const AboutSection = () => {
 
             {/* Button: Leer ons kennen - Very Compact Padding */}
             <motion.div
-              whileHover={{ y: -8, rotate: -3 }}
+              whileHover={{ y: -8, scale: 1.05, rotate: -2 }}
               transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               className="inline-flex items-center bg-transparent border-[2px] border-black rounded-xl p-0.5 px-2 md:px-5 shadow-sm hover:shadow-lg transition-shadow cursor-pointer group active:scale-95 origin-bottom-left"
             >

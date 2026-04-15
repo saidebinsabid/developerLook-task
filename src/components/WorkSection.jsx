@@ -136,7 +136,7 @@ const WorkSection = () => {
             </p>
 
             <motion.button
-              whileHover={{ y: -8, rotate: -3 }}
+              whileHover={{ y: -8, scale: 1.05, rotate: -2 }}
               transition={{ type: 'spring', stiffness: 400, damping: 25 }}
               className="group inline-flex items-center gap-3 border-[2.5px] border-black rounded-[14px] px-3 py-2 pr-2 hover:shadow-lg transition-shadow active:scale-95 origin-bottom-left"
             >

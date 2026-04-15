@@ -67,8 +67,9 @@ const Footer = () => {
 
         {/* Orange CTA Button */}
         <motion.button
+          whileHover={{ y: -8, scale: 1.05, rotate: -2 }}
           whileTap={{ scale: 0.97 }}
-          className="flex items-center gap-3 bg-[#ff5e26] text-white font-bold text-[15px] rounded-2xl pl-5 pr-2 py-2 mb-6 shadow-md"
+          className="flex items-center gap-3 bg-[#ff5e26] text-white font-bold text-[15px] rounded-2xl pl-5 pr-2 py-2 mb-6 shadow-md group"
         >
           <span>Get Hyped! Neem contact op</span>
           <div className="bg-white rounded-xl w-9 h-9 flex items-center justify-center shrink-0">
@@ -172,7 +173,7 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
             {/* Email Button */}
             <motion.div
-              whileHover={{ y: -5, rotate: -2 }}
+              whileHover={{ y: -8, scale: 1.05, rotate: -2 }}
               className="group inline-flex items-center gap-3 border-[2.5px] border-black rounded-2xl pl-5 pr-1.5 py-1.5 bg-[#F8F5F0] hover:shadow-lg transition-shadow cursor-pointer"
             >
               <span className="text-black font-extrabold text-[15px] pr-2">Mail ons direct</span>
@@ -183,7 +184,7 @@ const Footer = () => {
 
             {/* Get Results Button */}
             <motion.div
-              whileHover={{ y: -5, rotate: 2 }}
+              whileHover={{ y: -8, scale: 1.05, rotate: -2 }}
               className="group inline-flex items-center gap-3 bg-[#ff5e26] border-[2.5px] border-[#ff5e26] rounded-2xl pl-5 pr-1.5 py-1.5 hover:shadow-lg transition-shadow cursor-pointer"
             >
               <span className="text-white font-extrabold text-[15px] pr-2">Get Results</span>

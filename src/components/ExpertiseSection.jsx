@@ -189,11 +189,10 @@ const ExpertiseSection = () => {
 
                   {/* Row 5: Wide CTA Button */}
                   <button
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-[14px] transition-all active:scale-[0.97] shadow-sm"
-                    style={{ backgroundColor: card.btnColor, color: '#FFF' }}
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-[14px] transition-all active:scale-[0.97] border-[1.5px] border-black text-black"
                   >
                     <span className="font-bold text-[13px] sm:text-[14px]">{card.cta}</span>
-                    <div className="w-7 h-7 rounded-full flex items-center justify-center bg-white text-black shrink-0">
+                    <div className="w-7 h-7 rounded-full flex items-center justify-center bg-black text-white shrink-0">
                       <HiArrowUpRight size={14} />
                     </div>
                   </button>
@@ -228,11 +227,10 @@ const ExpertiseSection = () => {
                   <motion.button
                     whileHover={{ y: -8, scale: 1.05, rotate: -2 }}
                     whileTap={{ scale: 0.97 }}
-                    className="flex items-center gap-3 rounded-xl md:rounded-2xl px-4 py-2.5 transition-all shadow-sm w-fit group"
-                    style={{ backgroundColor: card.btnColor, color: '#FFF' }}
+                    className="flex items-center gap-3 rounded-xl md:rounded-2xl px-4 py-2.5 transition-all w-fit group border-[1.5px] border-black text-black"
                   >
                     <span className="font-bold md:text-[13px] lg:text-[15px] ml-0.5">{card.cta}</span>
-                    <div className="md:w-6 md:h-6 lg:w-8 lg:h-8 rounded-full flex items-center justify-center bg-white text-black shrink-0 transition-transform group-hover:rotate-12">
+                    <div className="md:w-6 md:h-6 lg:w-8 lg:h-8 rounded-full flex items-center justify-center bg-black text-white shrink-0 transition-transform group-hover:rotate-12">
                       <HiArrowUpRight size={14} />
                     </div>
                   </motion.button>
