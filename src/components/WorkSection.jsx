@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { HiArrowUpRight, HiArrowRight } from 'react-icons/hi2';
 
+import workVid1 from '../assets/work-1.mp4';
+import workVid2 from '../assets/work-2.mp4';
+import workVid3 from '../assets/work-3.mp4';
+
 const WORK_DATA = [
   {
     id: 1,
@@ -9,6 +13,7 @@ const WORK_DATA = [
     tag: "Bullit",
     color: "#FF5E26",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop",
+    video: workVid1,
     mobileRotate: -3,
   },
   {
@@ -17,6 +22,7 @@ const WORK_DATA = [
     tag: "Roasta",
     color: "#0c82fb",
     image: "https://images.unsplash.com/photo-1559525839-b184a4d698c7?q=80&w=800&auto=format&fit=crop",
+    video: workVid2,
     mobileRotate: 3,
   },
   {
@@ -25,6 +31,7 @@ const WORK_DATA = [
     tag: "Loco",
     color: "#27ce85",
     image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop",
+    video: workVid3,
     mobileRotate: -2,
   }
 ];
@@ -52,9 +59,12 @@ const WorkCard = ({ data }) => {
       style={{ borderColor: data.color, WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
     >
       <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <img
-          src={data.image}
-          alt={data.tag}
+        <video
+          src={data.video}
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </div>

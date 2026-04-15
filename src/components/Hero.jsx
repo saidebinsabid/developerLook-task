@@ -4,6 +4,9 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 const defaultImage1 = "https://images.unsplash.com/photo-1542282088-fe8426682b8f?q=80&w=800&auto=format&fit=crop"; // Car/lifestyle replacement
 const defaultImage2 = "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=800&auto=format&fit=crop"; // Garage replacement
 
+import heroVideo1 from '../assets/hero-video-1.mp4';
+import heroVideo2 from '../assets/hero-video-2.mp4';
+
 const Hero = () => {
   // Mouse parallax tracking - refined for better sensitivity/smoothness
   const mouseX = useMotionValue(0);
@@ -122,7 +125,14 @@ const Hero = () => {
           whileHover={{ rotate: 0, y: -30, x: -40, scale: 1.05, zIndex: 50 }}
           className="shrink-0 relative z-10 w-[190px] h-[260px] md:w-[260px] md:h-[350px] lg:w-[420px] lg:h-[540px] rounded-[40px] md:rounded-[48px] overflow-hidden shadow-none origin-bottom-left transition-shadow"
         >
-          <img src={defaultImage1} alt="Party" className="absolute inset-0 w-full h-full object-cover" />
+          <video
+            src={heroVideo1}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
         </motion.div>
 
@@ -152,17 +162,15 @@ const Hero = () => {
           whileHover={{ rotate: 0, y: -30, x: 80, scale: 1.05, zIndex: 50 }}
           className="hidden lg:flex snap-center shrink-0 relative z-10 w-[420px] h-[540px] rounded-[48px] overflow-hidden shadow-none origin-bottom-left transition-shadow lg:ml-2"
         >
-          <img src={defaultImage2} alt="Garage" className="absolute inset-0 w-full h-full object-cover" />
+          <video
+            src={heroVideo2}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
-
-          <div className="absolute bottom-12 left-0 right-0 text-center px-4">
-            <span
-              className="font-black text-2xl lg:text-5xl tracking-tighter text-white/90 drop-shadow-md uppercase"
-              style={{ WebkitTextStroke: '2px white' }}
-            >
-              Origineel <br /> Natuurlijk
-            </span>
-          </div>
         </motion.div>
 
 

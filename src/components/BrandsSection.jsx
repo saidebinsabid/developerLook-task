@@ -69,7 +69,7 @@ const BrandsSection = () => {
       </div>
 
       {/* Horizontal Line */}
-      <div className="max-w-[1700px] mx-auto px-6 lg:px-10 mt-24 md:mt-36">
+      <div className="max-w-[1700px] mx-auto px-6 lg:px-10 mt-12 md:mt-20">
         <div className="w-full h-[1px] bg-black/10"></div>
       </div>
     </section>

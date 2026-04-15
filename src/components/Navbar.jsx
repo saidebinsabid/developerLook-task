@@ -42,7 +42,7 @@ const Navbar = () => {
         </div>
 
         {/* Center Links - Desktop Only (Now LG+) */}
-        <div className="hidden lg:flex items-center gap-10 bg-white px-10 py-4 rounded-full shadow-[0px_4px_25px_rgba(0,0,0,0.03)]">
+        <div className="hidden lg:flex items-center gap-10 bg-white px-10 py-4 rounded-2xl shadow-[0px_4px_25px_rgba(0,0,0,0.03)]">
           {navLinks.map(link => (
             <a key={link} href={`#${link.toLowerCase()}`} className="text-[15px] font-bold text-black hover:text-gray-600 transition-colors">
               {link}
@@ -54,7 +54,7 @@ const Navbar = () => {
         <motion.div
           whileHover={{ y: -5, rotate: -2 }}
           whileTap={{ scale: 0.97 }}
-          className="hidden lg:flex cursor-pointer bg-gradient-to-r from-fuchsia-300 to-pink-300 rounded-[20px] px-6 py-3 items-center gap-3 shadow-md"
+          className="hidden lg:flex cursor-pointer bg-gradient-to-r from-fuchsia-300 to-pink-300 rounded-xl px-6 py-3 items-center gap-3 shadow-md"
         >
           <span className="text-[15px] font-bold text-black whitespace-nowrap">Get Results</span>
           <span className="bg-white rounded-lg w-7 h-7 flex items-center justify-center shadow-sm">
@@ -117,7 +117,7 @@ const Navbar = () => {
                   <a 
                     href={`#${link.toLowerCase()}`}
                     onClick={() => setIsOpen(false)}
-                    className="inline-block bg-white text-black font-black text-center text-xl md:text-3xl px-8 py-3 md:px-12 md:py-4 rounded-[18px] md:rounded-[28px] border-b-4 border-black/5 hover:bg-gray-50 transition-colors shadow-sm"
+                    className="inline-block bg-white text-black font-black text-center text-xl md:text-3xl px-8 py-3 md:px-12 md:py-4 rounded-xl md:rounded-2xl border-b-4 border-black/5 hover:bg-gray-50 transition-colors shadow-sm"
                   >
                     {link}
                   </a>
@@ -132,7 +132,7 @@ const Navbar = () => {
               transition={{ delay: 0.5 }}
               className="mt-auto mb-4 w-full flex justify-center"
             >
-              <div className="bg-[#111] text-white rounded-[24px] md:rounded-[32px] px-8 py-3 md:px-12 md:py-4 flex items-center gap-4 cursor-pointer hover:scale-105 transition-transform">
+              <div className="bg-[#111] text-white rounded-2xl md:rounded-3xl px-8 py-3 md:px-12 md:py-4 flex items-center gap-4 cursor-pointer hover:scale-105 transition-transform">
                 <span className="text-lg md:text-2xl font-black italic tracking-tighter">Get Results</span>
                 <div className="bg-white rounded-xl w-10 h-10 md:w-12 md:h-12 flex items-center justify-center shadow-sm">
                   <BsFire size={24} color="#ff5e26" />

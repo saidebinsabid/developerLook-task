@@ -1,11 +1,56 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { BsFire } from 'react-icons/bs';
 import { FaLinkedinIn, FaTiktok, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { HiEnvelope } from 'react-icons/hi2';
 import footerLogo from '../assets/footer-logo.svg';
 
+// Mouse Trail Images
+import trail1 from '../assets/mouse-move-.svg';
+import trail2 from '../assets/moue-move-2.svg';
+import trail3 from '../assets/mouse-move-3.svg';
+
+const TRAIL_IMAGES = [trail1, trail2, trail3];
+
 const Footer = () => {
+  const [trail, setTrail] = useState([]);
+  const footerRef = useRef(null);
+  const lastPos = useRef({ x: 0, y: 0 });
+  const indexRef = useRef(0);
+  const lastTime = useRef(0);
+
+  const handleMouseMove = (e) => {
+    if (!footerRef.current) return;
+
+    const now = Date.now();
+    const rect = footerRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    // Check distance moved 
+    const dist = Math.sqrt(
+      Math.pow(x - lastPos.current.x, 2) + Math.pow(y - lastPos.current.y, 2)
+    );
+
+    // Throttle drop rate to 1 image every 150ms + minimum 150px distance
+    if (dist > 150 && now - lastTime.current > 150) {
+      const id = now;
+      
+      // Use images in order (0, 1, 2)
+      const imgIndex = indexRef.current % TRAIL_IMAGES.length;
+      indexRef.current += 1;
+
+      setTrail((prev) => [...prev, { id, x, y, imgIndex }]);
+      lastPos.current = { x, y };
+      lastTime.current = now;
+
+      // Remove after animation
+      setTimeout(() => {
+        setTrail((prev) => prev.filter((item) => item.id !== id));
+      }, 800);
+    }
+  };
+
   return (
     <>
       {/* ===================== MOBILE FOOTER (< 768px only) ===================== */}
@@ -83,7 +128,35 @@ const Footer = () => {
       </footer>
 
       {/* ===================== DESKTOP / TABLET FOOTER (≥ 768px) ===================== */}
-      <footer className="hidden md:flex h-screen min-h-[800px] relative flex-col overflow-hidden">
+      <footer
+        ref={footerRef}
+        onMouseMove={handleMouseMove}
+        className="hidden md:flex h-screen min-h-[800px] relative flex-col overflow-hidden select-none"
+      >
+        {/* Mouse Trail Images */}
+        <AnimatePresence>
+          {trail.map((item) => (
+            <motion.img
+              key={item.id}
+              src={TRAIL_IMAGES[item.imgIndex]}
+              initial={{ opacity: 0, scale: 0, rotate: -20 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              exit={{ opacity: 0, scale: 1.5, rotate: 20 }}
+              transition={{ duration: 0.4 }}
+              style={{
+                position: 'absolute',
+                left: item.x,
+                top: item.y,
+                width: '200px',
+                height: '200px',
+                pointerEvents: 'none',
+                zIndex: 2000,
+                transform: 'translate(-50%, -50%)',
+              }}
+              alt=""
+            />
+          ))}
+        </AnimatePresence>
 
         {/* Top Half: CTA Section centered dynamically above the slanted block */}
         <div className="flex-1 flex flex-col items-center justify-center z-10 px-6">
@@ -122,7 +195,10 @@ const Footer = () => {
         </div>
 
         {/* Bottom Half: Slanted Footer Block - Now Centered as a "Batch" */}
-        <div className="relative w-full h-[650px] md:h-[500px] lg:h-[460px] z-20 px-6 lg:px-10">
+        <div
+          onMouseMove={(e) => e.stopPropagation()}
+          className="relative w-full h-[650px] md:h-[500px] lg:h-[460px] z-20 px-6 lg:px-10"
+        >
           {/* The Batch Container: both top corners smoothly rounded */}
           <div className="relative w-full h-full max-w-[1700px] mx-auto overflow-hidden bg-[#F8F5F0] rounded-t-[24px] md:rounded-t-[32px]">
 
