@@ -83,10 +83,10 @@ const Footer = () => {
       </footer>
 
       {/* ===================== DESKTOP / TABLET FOOTER (≥ 768px) ===================== */}
-      <footer className="hidden md:flex h-screen min-h-[800px] relative flex-col justify-end overflow-hidden">
+      <footer className="hidden md:flex h-screen min-h-[800px] relative flex-col overflow-hidden">
 
         {/* Top Half: CTA Section centered dynamically above the slanted block */}
-        <div className="absolute top-[10%] inset-x-0 flex flex-col items-center justify-center z-10 px-6">
+        <div className="flex-1 flex flex-col items-center justify-center z-10 px-6">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -122,7 +122,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Half: Slanted Footer Block - Now Centered as a "Batch" */}
-        <div className="relative w-full h-[650px] md:h-[500px] lg:h-[460px] z-20 mt-auto px-6 lg:px-10 ">
+        <div className="relative w-full h-[650px] md:h-[500px] lg:h-[460px] z-20 px-6 lg:px-10">
           {/* The Batch Container: both top corners smoothly rounded */}
           <div className="relative w-full h-full max-w-[1700px] mx-auto overflow-hidden bg-[#F8F5F0] rounded-t-[24px] md:rounded-t-[32px]">
 

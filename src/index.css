@@ -11,3 +11,12 @@ body {
   color: #111111;
   overflow-x: hidden;
 }
+
+@keyframes brands-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.brands-track {
+  animation: brands-scroll 30s linear infinite;
+}

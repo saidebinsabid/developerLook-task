@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
 import ExpertiseSection from './components/ExpertiseSection';
 import WorkSection from './components/WorkSection';
+import BrandsSection from './components/BrandsSection';
 import Footer from './components/Footer';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <AboutSection />
       <ExpertiseSection />
       <WorkSection />
+      <BrandsSection />
       <Footer />
     </Layout>
   );
