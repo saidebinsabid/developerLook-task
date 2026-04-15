@@ -229,7 +229,7 @@ const Footer = () => {
         {/* Bottom Half: Slanted Footer Block - Now Centered as a "Batch" */}
         <div
           onMouseMove={(e) => e.stopPropagation()}
-          className="relative w-full h-[650px] md:h-[500px] lg:h-[460px] z-20 px-6 lg:px-10"
+          className="relative w-full h-[650px] md:h-[500px] lg:h-[460px] z-20 px-6 lg:px-12"
         >
           {/* The Batch Container: both top corners smoothly rounded */}
           <div className="relative w-full h-full max-w-[1700px] mx-auto overflow-hidden bg-[#F8F5F0] rounded-t-[24px] md:rounded-t-[32px]">

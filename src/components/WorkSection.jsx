@@ -122,12 +122,12 @@ const WorkCard = ({ data }) => {
 
 const WorkSection = () => {
   return (
-    <section id="work" className="max-w-[1700px] mx-auto px-6 lg:px-10 py-20 lg:py-40 bg-[#F8F5F0]">
+    <section id="work" className="max-w-[1700px] mx-auto px-6 lg:px-12 py-24 lg:py-40 bg-[#F8F5F0]">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 xl:gap-14 items-start">
 
         {/* Column 1: Text & Card 1 */}
         <div className="lg:col-span-4 flex flex-col">
-          <div className="mb-20 lg:mb-32 pr-4 lg:pr-0">
+          <div className="mb-20 lg:mb-32">
             <h2 className="text-[4rem] sm:text-[5rem] lg:text-[6rem] xl:text-[7rem] font-black tracking-[-0.04em] leading-[0.85] text-[#111] mb-8 whitespace-nowrap">
               Content<br />dat scoort.
             </h2>

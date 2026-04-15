@@ -29,9 +29,9 @@ const DOUBLED = [...BRANDS, ...BRANDS];
 
 const BrandsSection = () => {
   return (
-    <section className="w-full bg-[#F8F5F0] pt-16 md:pt-24 pb-8 md:pb-12 overflow-hidden">
+    <section className="w-full bg-[#F8F5F0] py-24 lg:py-32 overflow-hidden">
       {/* Heading */}
-      <div className="max-w-[1700px] mx-auto px-6 lg:px-10 mb-10 md:mb-14">
+      <div className="max-w-[1700px] mx-auto px-6 lg:px-12 mb-10 md:mb-14">
         <h2 className="text-[2.2rem] sm:text-[3rem] md:text-[3.8rem] lg:text-[4.5rem] font-black tracking-[-0.03em] leading-[1.05] text-[#111]">
           These brands<br />got hyped.
         </h2>

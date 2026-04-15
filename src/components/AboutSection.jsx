@@ -7,7 +7,7 @@ const AboutSection = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="max-w-[1700px] mx-auto px-6 lg:px-10 pt-32 pb-16 md:pt-48 md:pb-24 bg-[#F9F4EE]">
+    <section className="max-w-[1700px] mx-auto px-6 lg:px-12 py-24 lg:py-40 bg-[#F9F4EE]">
       <div>
 
         {/* Main Heading - Resized and Narrowed to hit 4 Lines exactly */}

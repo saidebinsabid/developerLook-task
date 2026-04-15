@@ -138,7 +138,7 @@ const ExpertiseSection = () => {
             style={{ zIndex: i + 1 }}
           >
             <div
-              className="inner-card max-w-[1600px] w-full h-[90vh] md:h-[88vh] rounded-[22px] md:rounded-[32px] relative overflow-hidden flex flex-col md:flex-row px-5 pt-5 pb-6 sm:px-7 md:px-14 md:pt-14 md:pb-8 lg:px-28 lg:pt-16 lg:pb-10 gap-0 md:gap-6 lg:gap-16"
+              className="inner-card max-w-[1700px] w-full h-[90vh] md:h-[88vh] rounded-[22px] md:rounded-[32px] relative overflow-hidden flex flex-col md:flex-row px-5 pt-5 pb-6 sm:px-7 md:px-14 md:pt-14 md:pb-8 lg:px-24 lg:pt-16 lg:pb-10 gap-0 md:gap-6 lg:gap-16"
               style={{ backgroundColor: card.bgColor }}
             >
 
