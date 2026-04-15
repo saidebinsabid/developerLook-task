@@ -1,4 +1,5 @@
 import React, { useRef, useLayoutEffect } from 'react';
+import { motion } from 'framer-motion';
 import { HiArrowUpRight } from 'react-icons/hi2';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -224,15 +225,17 @@ const ExpertiseSection = () => {
                   <p className="md:text-sm lg:text-lg xl:text-xl font-medium opacity-80 leading-snug mb-4 lg:mb-8 max-w-lg">
                     {card.desc}
                   </p>
-                  <button
-                    className="flex items-center gap-3 rounded-xl md:rounded-2xl px-4 py-2.5 transition-all hover:scale-[1.03] active:scale-[0.97] shadow-sm w-fit"
+                  <motion.button
+                    whileHover={{ y: -8, scale: 1.05, rotate: -2 }}
+                    whileTap={{ scale: 0.97 }}
+                    className="flex items-center gap-3 rounded-xl md:rounded-2xl px-4 py-2.5 transition-all shadow-sm w-fit group"
                     style={{ backgroundColor: card.btnColor, color: '#FFF' }}
                   >
                     <span className="font-bold md:text-[13px] lg:text-[15px] ml-0.5">{card.cta}</span>
-                    <div className="md:w-6 md:h-6 lg:w-8 lg:h-8 rounded-full flex items-center justify-center bg-white text-black shrink-0">
+                    <div className="md:w-6 md:h-6 lg:w-8 lg:h-8 rounded-full flex items-center justify-center bg-white text-black shrink-0 transition-transform group-hover:rotate-12">
                       <HiArrowUpRight size={14} />
                     </div>
-                  </button>
+                  </motion.button>
                 </div>
               </div>
 
